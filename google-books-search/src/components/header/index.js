@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from "./logo.png"
 import {
   Collapse,
   Navbar,
@@ -19,7 +20,7 @@ const Header = (props) => {
       <Navbar color="light" light expand="md">
         <NavbarBrand href="https://books.google.com/">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/3/38/Google_Books_logo_2015.PNG"
+            src={logo}
             className="logo"
             alt="googleBooksLogo" />
         </NavbarBrand>
