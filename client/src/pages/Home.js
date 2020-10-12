@@ -3,6 +3,7 @@ import SearchBar from '../components/searchBar';
 import API from "../utils/API";
 import Card from '../components/card'
 import { List } from "../components/list";
+import { Col, Row, Container } from "../components/grid";
 import Book from '../components/book'
 
 
@@ -16,16 +17,16 @@ class Home extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [ name ] : value
+      [name]: value
     });
   };
 
-   getBooks = q => {
+  getBooks = q => {
     // console.log(q)
-     API.getBooks(q)
-      .then(res => 
+    API.getBooks(q)
+      .then(res =>
         // console.log({ books: res.data.items })
-          this.setState({ books: res.data.items })
+        this.setState({ books: res.data.items })
       )
       .catch(
         () =>
@@ -50,11 +51,12 @@ class Home extends Component {
     // find the index of the saved book
     const index = booksArray.indexOf(book);
     // remove saved book from the booksArray and setState
-    if (index > -1) { booksArray.splice(index, 1);
+    if (index > -1) {
+      booksArray.splice(index, 1);
       this.setState({
         books: booksArray
       })
-     }
+    }
 
     // call API and save the book to backend
     API.saveBook({
@@ -68,43 +70,50 @@ class Home extends Component {
     })
   };
 
-  render () {
+  render() {
     return (
-      <div>
-      <SearchBar 
-      handleInputChange={this.handleInputChange}
-      handleFormSubmit={this.handleFormSubmit}
-      q={this.state.q}
-      />
-      <Card title="Results">
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <Book
-                      key={book.id}
-                      title={book.volumeInfo.title}
-                      subtitle={book.volumeInfo.subtitle}
-                      link={book.volumeInfo.infoLink}
-                      authors={book.volumeInfo.authors}
-                      description={book.volumeInfo.description}
-                      image={book.volumeInfo.imageLinks.thumbnail}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleBookSave(book.id)}
-                          className="btn btn-primary ml-2"
-                        >
-                          Save
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center" style={{padding:'25px'}}>{this.state.message}</h2>
-              )}
+      <Container >
+        <Row>
+          <Col size="md-12">
+          <Card title="Book Search" icon="far fa-book">
+            <SearchBar
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+              q={this.state.q}
+            />
             </Card>
-      </div>
-    )}
+          </Col>
+        </Row>
+        <Card title="Results">
+          {this.state.books.length ? (
+            <List>
+              {this.state.books.map(book => (
+                <Book
+                  key={book.id}
+                  title={book.volumeInfo.title}
+                  subtitle={book.volumeInfo.subtitle}
+                  link={book.volumeInfo.infoLink}
+                  authors={book.volumeInfo.authors}
+                  description={book.volumeInfo.description}
+                  image={book.volumeInfo.imageLinks.thumbnail}
+                  Button={() => (
+                    <button
+                      onClick={() => this.handleBookSave(book.id)}
+                      className="btn btn-primary ml-2"
+                    >
+                      Save
+                    </button>
+                  )}
+                />
+              ))}
+            </List>
+          ) : (
+              <h2 className="text-center" style={{ padding: '25px' }}>{this.state.message}</h2>
+            )}
+        </Card>
+      </Container>
+    )
+  }
 };
 
 export default Home;
