@@ -28,7 +28,7 @@
     ```
     npm start
     ```
-  This app has also been deployed online, please click [here](https://guedesantonio.github.io/Google-Books-Search/) and start using it.
+  This app has also been deployed online, please click [here](https://guedesantonio-google-books.herokuapp.com/) and start using it.
 
   ## Usage
   
