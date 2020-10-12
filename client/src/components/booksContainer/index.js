@@ -4,7 +4,6 @@ import { Button, Jumbotron } from 'reactstrap';
 const BooksContainer = (props) => {
     return (
         <div className="d-flex justify-content-center">
-            <Jumbotron className="container-fluid  m-5 clearfix" style={{ padding: '.5rem', backgroundColor: "#F8F9FA" }}>
                 <p className="lead">{props.title}</p>
                 <Jumbotron>
                     <div class="d-flex justify-content-between">
@@ -28,7 +27,6 @@ const BooksContainer = (props) => {
                     </div>
                     <row></row>
                 </Jumbotron>
-            </Jumbotron>
         </div>
     );
 };

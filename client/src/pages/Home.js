@@ -74,15 +74,33 @@ class Home extends Component {
       handleFormSubmit={this.handleFormSubmit}
       q={this.state.q}
       />
-      <BooksContainer 
-        title="Results"
-        bookTitle="Harry Potter's Bookshelf"
-        btnType="Save"
-        summaryHeader="The Great Books behing Hogwarts Adventures"
-        author="John Doe"
-        imgSrc=""
-        summary=""
-        />
+      <Card title="Results">
+              {this.state.books.length ? (
+                <List>
+                  {this.state.books.map(book => (
+                    <Book
+                      key={book.id}
+                      title={book.volumeInfo.title}
+                      subtitle={book.volumeInfo.subtitle}
+                      link={book.volumeInfo.infoLink}
+                      authors={book.volumeInfo.authors}
+                      description={book.volumeInfo.description}
+                      image={book.volumeInfo.imageLinks.thumbnail}
+                      Button={() => (
+                        <button
+                          onClick={() => this.handleBookSave(book.id)}
+                          className="btn btn-primary ml-2"
+                        >
+                          Save
+                        </button>
+                      )}
+                    />
+                  ))}
+                </List>
+              ) : (
+                <h2 className="text-center" style={{padding:'25px'}}>{this.state.message}</h2>
+              )}
+            </Card>
       </div>
   }
 };
