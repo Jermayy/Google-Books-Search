@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Card from "../components/card";
 import Book from "../components/book";
 import API from "../utils/API";
-import { Col, Row} from "../components/grid";
+import { Col, Row, Container} from "../components/grid";
 import { List } from "../components/list";
 
 class Saved extends Component {
@@ -30,6 +30,7 @@ class Saved extends Component {
 
   render() {
     return (
+      <Container>
         <Row>
           <Col size="md-12">
             <Card title="Saved Books" icon="download">
@@ -61,6 +62,7 @@ class Saved extends Component {
             </Card>
           </Col>
         </Row>
+        </Container>
     );
   }
 }

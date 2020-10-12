@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ icon, title, children }) {
   return (
-    <div className="card mt-4 p-3 mb-2 bg-dark text-white">
+    <div className="card mt-4 p-3 mb-2 ">
       <div className="card-header">
         <h3>
           <strong>

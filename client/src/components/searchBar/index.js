@@ -3,7 +3,7 @@ import React from 'react';
 function SearchBar({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>
-      <div className="form-group p-3 mb-2 bg-dark text-white">
+      <div className="form-group p-3 mb-2">
         <label htmlFor="Query">
           <strong>Book</strong>
         </label>
@@ -22,7 +22,7 @@ function SearchBar({ q, handleInputChange, handleFormSubmit }) {
         <button
           onClick={handleFormSubmit}
           type="submit"
-          className="btn btn-lg btn-info float-right"
+          className="btn btn-lg btn-light btn-outline-secondary float-right"
           style={{margin: "16px"}}
         >
           Search
