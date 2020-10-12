@@ -1,14 +1,11 @@
-import React from 'react';
-import  "./style.css"
+import React from "react";
 
-const Footer = (props) => {
+function Footer() {
   return (
-    <footer id="sticky-footer " class=" py-4  " color="light" >
-    <div class="container text-center">
-      <small>© Copyright - Antonio Guedes </small>
-    </div>
-  </footer>
+    <div className="card-footer text-muted bg-dark text-white d-flex justify-content-center">
+   © Copyright - Antonio Guedes
+   </div> 
   );
-};
+}
 
 export default Footer;

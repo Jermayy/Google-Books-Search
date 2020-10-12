@@ -1,21 +1,36 @@
 import React from 'react';
-import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const SearchBar = () => {
-    return (
-        <div className="d-flex justify-content-center">
-            <Jumbotron className="container-fluid  m-5 clearfix" style={{ padding: '.5rem', backgroundColor: "#F8F9FA" }}>
-            <p className="lead">Book Search</p>
-                <Form>
-                    <FormGroup>
-                        <Label for="exampleEmail">Book</Label>
-                        <Input type="email" name="email" id="exampleEmail" placeholder="Book Title" />
-                    </FormGroup>
-                    <Button className="float-right">Search</Button>
-                </Form>
-            </Jumbotron>
-        </div>
-    );
-};
+function SearchBar({ q, handleInputChange, handleFormSubmit }) {
+  return (
+    <form>
+      <div className="form-group p-3 mb-2 bg-dark text-white">
+        <label htmlFor="Query">
+          <strong>Book</strong>
+        </label>
+        <input
+          className="form-control"
+          id="Title"
+          type="text"
+          value={q}
+          placeholder="Search by book title"
+          name="q"
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div className="pull-right">
+        <button
+          onClick={handleFormSubmit}
+          type="submit"
+          className="btn btn-lg btn-info float-right"
+          style={{margin: "16px"}}
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  );
+}
+
 
 export default SearchBar;

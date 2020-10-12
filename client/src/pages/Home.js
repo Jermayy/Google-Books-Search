@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from "react";
 import SearchBar from '../components/searchBar';
-import { Jumbotron, Button } from 'reactstrap';
-import BooksContainer from '../components/booksContainer';
 import API from "../utils/API";
+import Card from '../components/card'
+import { List } from "../components/list";
+import Book from '../components/book'
 
 
 class Home extends Component {
@@ -66,8 +67,9 @@ class Home extends Component {
       image: book.volumeInfo.imageLinks.thumbnail
     })
   };
-  render () {
 
+  render () {
+    return (
       <div>
       <SearchBar 
       handleInputChange={this.handleInputChange}
@@ -102,7 +104,7 @@ class Home extends Component {
               )}
             </Card>
       </div>
-  }
+    )}
 };
 
 export default Home;

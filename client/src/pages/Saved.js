@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
-import Book from "../components/Book";
+import Card from "../components/card";
+import Book from "../components/book";
 import API from "../utils/API";
-import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+import { Col, Row} from "../components/grid";
+import { List } from "../components/list";
 
 class Saved extends Component {
   state = {
