@@ -19,7 +19,8 @@
 
   ## Installation
 
-    The user needs to run:
+  The user needs to run:
+
     ```
     npm install
     ```
